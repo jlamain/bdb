@@ -9,4 +9,5 @@ struct Disc
     QString title;
     QString description;
 };
+
 #endif //BDB_DISC_H

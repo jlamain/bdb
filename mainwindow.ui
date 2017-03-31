@@ -33,6 +33,7 @@
     <property name="title">
      <string>BDB</string>
     </property>
+    <addaction name="actionAddDisc"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menuBDB"/>
@@ -41,6 +42,14 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAddDisc">
+   <property name="text">
+    <string>Add Disc</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Disc</string>
    </property>
   </action>
  </widget>

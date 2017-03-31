@@ -2,9 +2,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QStandardItemModel>
-
 #include "ui_mainwindow.h"
+#include "disc.h"
 
 class DiscModel;
 
