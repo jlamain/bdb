@@ -5,3 +5,5 @@ bdb
 bdb_automoc.cpp
 cmake_install.cmake
 moc_*.cpp
+.idea
+bdb.cbp

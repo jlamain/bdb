@@ -18,7 +18,7 @@ find_package(Qt5Widgets REQUIRED)
 qt5_wrap_ui(UI_HEADERS mainwindow.ui)
 
 # Tell CMake to create the helloworld executable
-add_executable(bdb bdb.cpp mainwindow.cpp ${UI_HEADERS})
+add_executable(bdb bdb.cpp mainwindow.cpp ${UI_HEADERS} discmodel.cpp disc.h discmodel.h)
 
 #target_link_libraries (bdb mainwindow)
 
