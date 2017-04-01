@@ -1,7 +1,12 @@
+
+#include <QStandardPaths>
+#include <QDir>
+#include <QDomDocument>
+
 #include "discmodel.h"
 
-DiscModel::DiscModel(QObject *parent)
-        :QAbstractTableModel(parent)
+DiscModel::DiscModel(QObject *parent, std::vector <Disc> & discs)
+        :QAbstractTableModel(parent), discs(discs)
 {
     Disc d1;
     d1.nr = 1;
@@ -39,4 +44,27 @@ QVariant DiscModel::data(const QModelIndex &index, int role) const
         return ret;
     }
     return QVariant();
+}
+
+void DiscModel::load()
+{
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    path = path + QDir::separator() + "broerdb.xml";
+
+    QDomDocument doc("broerdb");
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly))
+        return;
+    if (!doc.setContent(&file)) {
+        file.close();
+        return;
+    }
+    file.close();
+    printf("load %s\n", path.toUtf8().constData());
+}
+
+
+void DiscModel::save()
+{
+
 }
