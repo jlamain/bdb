@@ -6,6 +6,7 @@
 #include "disc.h"
 
 class DiscModel;
+class QStandardItemModel;
 
 class MainWindow : public QMainWindow {
 
@@ -19,6 +20,7 @@ class MainWindow : public QMainWindow {
     private:
     Ui_MainWindow ui;
     DiscModel *model;
+//    QStandardItemModel *model;
 
     public slots:
     void addDiscTriggered();

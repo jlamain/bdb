@@ -8,15 +8,11 @@
 DiscModel::DiscModel(QObject *parent, std::vector <Disc> & discs)
         :QAbstractTableModel(parent), discs(discs)
 {
-    Disc d1;
-    d1.nr = 1;
-    d1.title = "Pulp Fiction";
-
-    discs.push_back(d1);
 }
 
 int DiscModel::rowCount(const QModelIndex & /*parent*/) const
 {
+    //printf("size %d\n", (int)discs.size());
     return discs.size();
 }
 
@@ -41,6 +37,8 @@ QVariant DiscModel::data(const QModelIndex &index, int role) const
                 ret = discs[row].title;
                 break;
         }
+       // printf("get col %d row %d dat:%s\n", col, row, ret.toUtf8().data());
+
         return ret;
     }
     return QVariant();
@@ -67,4 +65,16 @@ void DiscModel::load()
 void DiscModel::save()
 {
 
+}
+
+void DiscModel::addDisc(Disc d)
+{
+    beginInsertRows(QModelIndex(), discs.size(), discs.size());
+    discs.push_back(d);
+    endInsertRows();
+
+    QModelIndex top = createIndex(discs.size() - 1, 0, nullptr);
+    QModelIndex bottom = createIndex(discs.size() - 1, 3, nullptr);
+
+    emit dataChanged(top, bottom);
 }
