@@ -44,6 +44,23 @@ QVariant DiscModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+QVariant DiscModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role == Qt::DisplayRole)
+    {
+        if (orientation == Qt::Horizontal) {
+            switch (section)
+            {
+                case 0:
+                    return QString(tr("Nr"));
+                case 1:
+                    return QString(tr("Title"));
+            }
+        }
+    }
+    return QVariant();
+}
+
 void DiscModel::load()
 {
     QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);

@@ -109,8 +109,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>260</x>
+     <y>490</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -125,8 +125,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>328</x>
+     <y>490</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -134,5 +134,92 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>nr</sender>
+   <signal>editingFinished()</signal>
+   <receiver>DiscDialog</receiver>
+   <slot>nrFinished()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>21</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>title</sender>
+   <signal>editingFinished()</signal>
+   <receiver>DiscDialog</receiver>
+   <slot>titleFinished()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>368</x>
+     <y>54</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>type</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>DiscDialog</receiver>
+   <slot>typeChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>181</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>86</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nrOfDiscs</sender>
+   <signal>editingFinished()</signal>
+   <receiver>DiscDialog</receiver>
+   <slot>nrOfDiscsFinished()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>237</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>343</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>description</sender>
+   <signal>textChanged()</signal>
+   <receiver>DiscDialog</receiver>
+   <slot>descriptionFinished()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>183</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>nrFinished()</slot>
+  <slot>titleFinished()</slot>
+  <slot>typeChanged(int)</slot>
+  <slot>nrOfDiscsFinished()</slot>
+  <slot>descriptionFinished()</slot>
+ </slots>
 </ui>

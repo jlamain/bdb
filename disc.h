@@ -10,7 +10,7 @@
 struct Disc
 {
     int nr;
-    enum {
+    enum DiscType {
         Dvd,
         Cd,
         Bluray
@@ -19,12 +19,12 @@ struct Disc
     QString title;
     QString description;
 
-    int _nrOfDvds;
+    int   nrOfDvds;
     QDate bought;
-    int _rating;
-    Nicam _nicam;
-    Genre _genre;
-    QString _rent;
+    int   rating;
+    Nicam nicam;
+    Genre genre;
+    QString rent;
 };
 
 #endif //BDB_DISC_H

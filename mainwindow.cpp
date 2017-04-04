@@ -34,14 +34,11 @@ void MainWindow::addDiscTriggered()
 
     new_disc.nr = max + 1;
     DiscDialog * d = new DiscDialog(this, new_disc);
+
     int ret = d->exec();
     if (ret == QDialog::Accepted)
     {
-        new_disc.nr = d->ui.nr->text().toInt();
-        new_disc.title = d->ui.title->text();
-        //new_disc.description = d->ui.description->;
-
-        model->addDisc(new_disc);
+        model->addDisc(d->getDisc());
     }
     delete d;
 

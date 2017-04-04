@@ -10,14 +10,22 @@
 
 class DiscDialog: public QDialog {
 
-    public:
-    DiscDialog(QWidget * parent, Disc & d);
+    Q_OBJECT
 
     public:
-    Ui_DiscDialog ui;
-    Disc &        disc;
+    DiscDialog(QWidget * parent, Disc d);
+    Disc getDisc() const;
 
+    private:
+    Ui_DiscDialog   ui;
+    Disc            disc;
 
+    public slots:
+    void nrFinished();
+    void titleFinished();
+    void typeChanged(int);
+    void nrOfDiscsFinished();
+    void descriptionFinished();
 };
 
 

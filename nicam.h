@@ -15,6 +15,33 @@ struct Nicam
     boolean Discriminatie;
     boolean AlcoholDrugs;
     boolean Grof;
+
+    QString ToString() const
+    {
+        uint32_t nr = 0;
+        if (Geweld)         nr |= 1 << 0;
+        if (Angst)          nr |= 1 << 1;
+        if (Seks)           nr |= 1 << 2;
+        if (Discriminatie)  nr |= 1 << 3;
+        if (AlcoholDrugs)   nr |= 1 << 4;
+        if (Grof)           nr |= 1 << 5;
+
+        return QString::number(nr);
+    }
+
+    void parse(QString s)
+    {
+        uint32_t nr = s.toInt();
+
+        if (Geweld)         nr |= 1 << 0;
+        if (Angst)          nr |= 1 << 1;
+        if (Seks)           nr |= 1 << 2;
+        if (Discriminatie)  nr |= 1 << 3;
+        if (AlcoholDrugs)   nr |= 1 << 4;
+        if (Grof)           nr |= 1 << 5;
+    }
+
+
 };
 
 #endif //BDB_NICAM_H
