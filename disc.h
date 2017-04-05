@@ -20,7 +20,7 @@ struct Disc
     QString description;
 
     int   nrOfDvds;
-    QDate bought;
+    QDateTime bought;
     int   rating;
     Nicam nicam;
     Genre genre;
