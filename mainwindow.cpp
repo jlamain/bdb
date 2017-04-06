@@ -1,5 +1,8 @@
 
 #include <QStandardItemModel>
+#include <QDebug>
+#include <QPrintDialog>
+#include <QPrinter>
 
 #include "mainwindow.h"
 #include "discmodel.h"
@@ -52,13 +55,36 @@ void MainWindow::on_actionAddDisc_triggered()
 
 void MainWindow::on_actionRemoveDisc_triggered()
 {
-    printf("removeDiscTriggered\n");
+    QItemSelectionModel *select = ui.tableView->selectionModel();
 
+    if (select->hasSelection())
+    {
+        QModelIndexList selection = select->selectedRows();
+        std::vector<int> rows;
+        for(int i=0; i< selection.count(); i++)
+        {
+
+            QModelIndex index = selection.at(i);
+            qDebug() << index.row();
+            rows.push_back(index.row());
+            model->deleteRows(rows);
+        }
+    }
+//    select->selectedRows() // return selected row(s)
+//    select->selectedColumns() // return selected column(s)
+//
+//    int idx = ui.tableView->sele
 }
 
 void MainWindow::on_actionPrint_triggered()
 {
+    QPrinter printer(QPrinter::HighResolution);
+
     printf("on_actionPrint_triggered\n");
+    QPrintDialog printDialog(&printer, this);
+    if (printDialog.exec() == QDialog::Accepted) {
+        // print ...
+    }
 
 }
 

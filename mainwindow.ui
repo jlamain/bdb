@@ -16,7 +16,11 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTableView" name="tableView"/>
+     <widget class="QTableView" name="tableView">
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -73,9 +77,6 @@
    </property>
   </action>
   <action name="actionRemoveDisc">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="text">
     <string>Remove Disc</string>
    </property>

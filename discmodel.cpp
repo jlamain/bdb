@@ -210,3 +210,22 @@ void DiscModel::addDisc(Disc d)
 
     emit dataChanged(top, bottom);
 }
+
+void  DiscModel::deleteRows(const std::vector<int> & rows)
+{
+    for (const auto & r: rows)
+    {
+        discs[r] = discs.back();
+        discs.pop_back();
+    }
+
+    std::sort(discs.begin(), discs.end(), [](const Disc & a, const Disc b) {
+        return a.nr < b.nr;
+    });
+
+    QModelIndex top = createIndex(discs.size() - 1, 0, nullptr);
+    QModelIndex bottom = createIndex(discs.size() - 1, 3, nullptr);
+
+    emit dataChanged(top, bottom);
+}
+
