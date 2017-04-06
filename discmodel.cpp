@@ -146,6 +146,10 @@ void DiscModel::load()
         }
         s.readNext();
     }
+    std::sort(discs.begin(), discs.end(), [](const Disc & a, const Disc b) {
+        return a.nr < b.nr;
+    });
+
     endInsertRows();
 
 
@@ -197,6 +201,8 @@ void DiscModel::save()
     s.writeEndElement();
     /*end document */
     s.writeEndDocument();
+
+
 }
 
 void DiscModel::addDisc(Disc d)
@@ -211,12 +217,17 @@ void DiscModel::addDisc(Disc d)
     emit dataChanged(top, bottom);
 }
 
-void  DiscModel::deleteRows(const std::vector<int> & rows)
+void  DiscModel::deleteRows(std::vector<int> rows)
 {
+    // sort back to front, to avoid shuffling indexes of discs vector.
+    std::sort(rows.begin(), rows.end(), [](int a, int b) {
+        return a > b;
+    });
+
+
     for (const auto & r: rows)
     {
-        discs[r] = discs.back();
-        discs.pop_back();
+        discs.erase(discs.begin() + r);
     }
 
     std::sort(discs.begin(), discs.end(), [](const Disc & a, const Disc b) {

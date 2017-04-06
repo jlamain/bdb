@@ -21,7 +21,7 @@ public:
     void load();
     void save();
     void addDisc(Disc d);
-    void deleteRows(const std::vector<int> & rows);
+    void deleteRows(std::vector<int> rows);
 };
 
 #endif

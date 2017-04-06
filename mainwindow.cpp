@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QPrintDialog>
 #include <QPrinter>
+#include <QPainter>
 
 #include "mainwindow.h"
 #include "discmodel.h"
@@ -65,15 +66,10 @@ void MainWindow::on_actionRemoveDisc_triggered()
         {
 
             QModelIndex index = selection.at(i);
-            qDebug() << index.row();
             rows.push_back(index.row());
-            model->deleteRows(rows);
         }
+        model->deleteRows(rows);
     }
-//    select->selectedRows() // return selected row(s)
-//    select->selectedColumns() // return selected column(s)
-//
-//    int idx = ui.tableView->sele
 }
 
 void MainWindow::on_actionPrint_triggered()
@@ -83,7 +79,40 @@ void MainWindow::on_actionPrint_triggered()
     printf("on_actionPrint_triggered\n");
     QPrintDialog printDialog(&printer, this);
     if (printDialog.exec() == QDialog::Accepted) {
-        // print ...
+        QRectF page = printer.pageRect(QPrinter::Millimeter);
+
+        QPainter painter;
+        painter.begin(&printer);
+        qDebug() << page;
+
+        QFont font = painter.font();
+        font.setPointSize(12);
+        painter.setFont(font);
+
+        int x = 0;
+        int y = 0;
+        for (const auto & d: discs)
+        {
+            painter.drawText(x, y, QString::number(d.nr));
+            painter.drawText(x + 50, y, d.title );
+
+            y+= 14;
+            if (y > page.height())
+            {
+                if (x == 0)
+                {
+                    x = page.width() / 2;
+                    y = 0;
+                } else
+                {
+                    x = 0;
+                    y = 0;
+                    printer.newPage();
+                }
+            }
+        }
+        painter.end();
+
     }
 
 }
