@@ -19,7 +19,7 @@ int DiscModel::rowCount(const QModelIndex & /*parent*/) const
 
 int DiscModel::columnCount(const QModelIndex & /*parent*/) const
 {
-    return 2;
+    return 3;
 }
 
 QVariant DiscModel::data(const QModelIndex &index, int role) const
@@ -36,6 +36,9 @@ QVariant DiscModel::data(const QModelIndex &index, int role) const
                 break;
             case 1:
                 ret = discs[row].title;
+                break;
+            case 2:
+                ret.setNum(discs[row].rating);
                 break;
         }
        // printf("get col %d row %d dat:%s\n", col, row, ret.toUtf8().data());
@@ -56,6 +59,8 @@ QVariant DiscModel::headerData(int section, Qt::Orientation orientation, int rol
                     return QString(tr("Nr"));
                 case 1:
                     return QString(tr("Title"));
+                case 2:
+                    return QString(tr("Rating"));
             }
         }
     }
@@ -155,7 +160,43 @@ void DiscModel::load()
 
 void DiscModel::save()
 {
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    path = path + QDir::separator() + "broerdb2.xml";
+    qDebug() << "Save " << path;
 
+    QFile file(path);
+    if (!file.open(QIODevice::WriteOnly))
+        return;
+
+    QXmlStreamWriter s;
+    s.setDevice(&file);
+    s.setAutoFormatting(true);
+    /* Writes a document start with the XML version number. */
+    s.writeStartDocument();
+    s.writeStartElement("dvdcollection");
+
+    for (auto & d : discs)
+    {
+        s.writeStartElement("dvd");
+
+        s.writeAttribute("nr",QString::number(d.nr));
+        s.writeAttribute("disctype", QString::number(d.type));
+        s.writeAttribute("title", d.title);
+        s.writeAttribute("description", d.description);
+        s.writeAttribute("nrofdvds", QString::number(d.nrOfDvds));
+        s.writeAttribute("bought", d.bought.toString("d-m-yyyy HH:mm:ss"));
+        s.writeAttribute("rating",QString::number(d.rating));
+        s.writeAttribute("nicam", d.nicam.ToString());
+        s.writeAttribute("genre",d.genre.ToString());
+        s.writeAttribute("rent",d.rent);
+        /*close tag student  */
+        s.writeEndElement();
+    }
+
+    /*end tag students*/
+    s.writeEndElement();
+    /*end document */
+    s.writeEndDocument();
 }
 
 void DiscModel::addDisc(Disc d)

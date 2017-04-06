@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuBDB">
@@ -34,7 +34,8 @@
      <string>Disc</string>
     </property>
     <addaction name="actionAddDisc"/>
-    <addaction name="actionRemove_Disc"/>
+    <addaction name="actionRemoveDisc"/>
+    <addaction name="actionPrint"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -52,7 +53,8 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionAddDisc"/>
-   <addaction name="actionRemove_Disc"/>
+   <addaction name="actionRemoveDisc"/>
+   <addaction name="actionPrint"/>
   </widget>
   <action name="actionExit">
    <property name="text">
@@ -70,7 +72,7 @@
     <string>+</string>
    </property>
   </action>
-  <action name="actionRemove_Disc">
+  <action name="actionRemoveDisc">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -81,30 +83,25 @@
     <string>Del</string>
    </property>
   </action>
+  <action name="actionPrint">
+   <property name="text">
+    <string>Print</string>
+   </property>
+   <property name="toolTip">
+    <string>Print</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>actionAddDisc</sender>
+   <sender>actionExit</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
-   <slot>addDiscTriggered()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionRemove_Disc</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>removeDiscTriggered()</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

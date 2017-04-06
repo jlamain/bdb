@@ -23,8 +23,11 @@ class MainWindow : public QMainWindow {
 //    QStandardItemModel *model;
 
     public slots:
-    void addDiscTriggered();
-    void removeDiscTriggered();
+    void on_actionAddDisc_triggered();
+    void on_actionRemoveDisc_triggered();
+    void on_actionPrint_triggered();
+    void actionsOnQuit();
+
 
 };
 #endif

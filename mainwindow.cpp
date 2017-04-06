@@ -16,12 +16,17 @@ MainWindow::MainWindow()
 //    model->setHeaderData(1, Qt::Horizontal, QObject::tr("title"));
     ui.setupUi(this);
     ui.tableView->setModel(model);
+    //ui.tableView->resizeColumnToContents(0);
+    ui.tableView->resizeColumnToContents(1);
+    //ui.tableView->resizeColumnToContents(2);
     ui.tableView->show();
     menuBar()->setNativeMenuBar(true);
+
+    connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(actionsOnQuit()));
 }
 
 
-void MainWindow::addDiscTriggered()
+void MainWindow::on_actionAddDisc_triggered()
 {
     Disc new_disc;
 
@@ -45,8 +50,21 @@ void MainWindow::addDiscTriggered()
 
 }
 
-void MainWindow::removeDiscTriggered()
+void MainWindow::on_actionRemoveDisc_triggered()
 {
     printf("removeDiscTriggered\n");
 
 }
+
+void MainWindow::on_actionPrint_triggered()
+{
+    printf("on_actionPrint_triggered\n");
+
+}
+
+void MainWindow::actionsOnQuit()
+{
+    printf("actionsOnQuit\n");
+    model->save();
+}
+
