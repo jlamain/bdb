@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="nl_NL">
+<context>
+    <name>DiscDialog</name>
+    <message>
+        <location filename="discdialog.ui" line="14"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="136"/>
+        <source>Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="24"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="137"/>
+        <source>Nr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="34"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="138"/>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="44"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="139"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="52"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="142"/>
+        <source>CD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="57"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="143"/>
+        <source>DVD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="62"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="144"/>
+        <source>BluRay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="70"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="146"/>
+        <source>Nr of Discs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discdialog.ui" line="80"/>
+        <location filename="cmake-build-debug/ui_discdialog.h" line="147"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DiscModel</name>
+    <message>
+        <location filename="discmodel.cpp" line="59"/>
+        <source>Nr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discmodel.cpp" line="61"/>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="discmodel.cpp" line="63"/>
+        <source>Rating</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="mainwindow.ui" line="14"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="98"/>
+        <source>MainWindow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="38"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="112"/>
+        <source>Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="51"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="113"/>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="65"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="99"/>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="70"/>
+        <location filename="mainwindow.ui" line="73"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="100"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="102"/>
+        <source>Add Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="76"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="104"/>
+        <source>+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="81"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="105"/>
+        <source>Remove Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="84"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="106"/>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="89"/>
+        <location filename="mainwindow.ui" line="92"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="107"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="109"/>
+        <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="95"/>
+        <location filename="cmake-build-debug/ui_mainwindow.h" line="111"/>
+        <source>Ctrl+P</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+</TS>
