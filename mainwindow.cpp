@@ -79,34 +79,45 @@ void MainWindow::on_actionPrint_triggered()
     printf("on_actionPrint_triggered\n");
     QPrintDialog printDialog(&printer, this);
     if (printDialog.exec() == QDialog::Accepted) {
-        QRectF page = printer.pageRect(QPrinter::Millimeter);
+        auto width = printer.width();
+        auto height = printer.height();
+
 
         QPainter painter;
         painter.begin(&printer);
-        qDebug() << page;
+        //qDebug() << page;
 
         QFont font = painter.font();
-        font.setPointSize(12);
+        font.setPointSize(10);
         painter.setFont(font);
 
+        const int top = 20;
+        const int linespacing = 14;
+        const int nr_width = 40;
+        const int clip_whitespace = 10;
         int x = 0;
-        int y = 0;
+        int y = top;
+
+        painter.setClipRect(0,0, width / 2 - clip_whitespace, height, Qt::ReplaceClip);
         for (const auto & d: discs)
         {
-            painter.drawText(x, y, QString::number(d.nr));
-            painter.drawText(x + 50, y, d.title );
+            painter.drawText(x + clip_whitespace, y, QString::number(d.nr));
+            painter.drawText(x + nr_width, y, d.title );
 
-            y+= 14;
-            if (y > page.height())
+            y+= linespacing;
+            if (y > height - top)
             {
                 if (x == 0)
                 {
-                    x = page.width() / 2;
-                    y = 0;
+                    x = width / 2;
+                    y = top;
+                    painter.setClipRect(x,0, width / 2 - clip_whitespace, height, Qt::ReplaceClip);
+
                 } else
                 {
+                    painter.setClipRect(0,0, width / 2 - clip_whitespace, height, Qt::ReplaceClip);
                     x = 0;
-                    y = 0;
+                    y = top;
                     printer.newPage();
                 }
             }
