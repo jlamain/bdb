@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
 
     QTranslator myappTranslator;
-    myappTranslator.load("lang_nl");
+    myappTranslator.load(":/bdb_nl");
     if (app.installTranslator(&myappTranslator))
     {
         qDebug() << "Load ok";
